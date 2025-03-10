@@ -289,7 +289,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <Button className="w-full bg-black text-white hover:bg-gray-800 transition-colors">
+                  <Button className="w-full bg-black  hover:bg-gray-800  bg-gradient-to-r from-blue-900 to-black text-white hover:from-blue-900 hover:to-black transition-colors border-blue-400  shadow-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium">
                     Send Message
                   </Button>
                 </div>

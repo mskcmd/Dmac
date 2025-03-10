@@ -1,22 +1,18 @@
-// src/components/Navbar.tsx
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState, useEffect } from "react";
-import React from "react";
 import image from "../assets/DM_logo-01-1.png";
+import React from "react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // State to control menu
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -43,11 +39,7 @@ export default function Navbar() {
           {/* Left: Logo */}
           <div className="flex-shrink-0">
             <NavLink to="/">
-              <img
-                src={image}
-                alt="Darul Ma'arif Valiyora Logo"
-                className="h-20 w-auto" // Increased height
-              />
+              <img src={image} alt="Logo" className="h-20 w-auto" />
             </NavLink>
           </div>
 
@@ -77,32 +69,18 @@ export default function Navbar() {
               className="flex items-center gap-2 border-black hover:bg-gray-100 transition-colors"
             >
               <span className="font-medium">Donate</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="5" width="20" height="14" rx="2" />
-                <line x1="2" y1="10" x2="22" y2="10" />
-              </svg>
             </Button>
           </div>
 
           {/* Mobile Menu */}
           <div className="sm:hidden flex items-center">
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[250px]">
+              <SheetContent side="right" className="w-[250px] bg-black">
                 <div className="flex flex-col space-y-6 mt-6 text-white">
                   {navItems.map((item) => (
                     <NavLink
@@ -110,16 +88,18 @@ export default function Navbar() {
                       to={item.href}
                       className={({ isActive }) =>
                         `text-lg font-medium transition-colors ${
-                          isActive
-                            ? "text-white font-semibold"
-                            : "text-gray-400 hover:text-white"
+                          isActive ? "text-yellow-400 font-semibold" : "text-gray-300 hover:text-white"
                         }`
                       }
+                      onClick={() => setIsOpen(false)} // Close menu when clicking a link
                     >
                       {item.label}
                     </NavLink>
                   ))}
-                  <Button className="mt-4 bg-black text-white hover:bg-gray-800 transition-colors">
+                  <Button
+                    className="mt-4 bg-yellow-400 text-black hover:bg-yellow-500 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Donate
                   </Button>
                 </div>
