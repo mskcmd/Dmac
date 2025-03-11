@@ -1,52 +1,52 @@
-// src/components/Breadcrumb.tsx
-import { Home } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLocation, Link } from "react-router-dom"
-import { useEffect, useState } from "react"
-import React from "react"
+import { Home, Youtube, Facebook, Twitter } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 export default function Breadcrumb() {
-  const location = useLocation()
-  const [currentPath, setCurrentPath] = useState("")
-  
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState("Home");
+
   useEffect(() => {
-    // Get the current path without leading slash
-    const path = location.pathname.substring(1)
-    
-    // Capitalize first letter and replace hyphens with spaces
-    if (path) {
-      setCurrentPath(path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, ' '))
-    } else {
-      setCurrentPath("Home")
-    }
-  }, [location])
+    const pathSegments = location.pathname.split("/").filter((segment) => segment);
+    setCurrentPath(pathSegments.length > 0 ? pathSegments.join(" > ") : "Home");
+  }, [location]);
 
   return (
-    <div className="bg-gray-100 py-4">
+    <div className="bg-blue-950 py-1 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <nav className="flex" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-4">
               <li>
-                <Link to="/" className="text-gray-500 hover:text-black transition-colors">
-                  <Home className="h-5 w-5" />
+                <Link to="/" className="text-white hover:text-gray-200 transition-colors">
+                  <Home className="h-6 w-6" />
                 </Link>
               </li>
               {currentPath !== "Home" && (
                 <>
                   <li>
-                    <span className="text-gray-500">/</span>
+                    <span className="text-gray-300">/</span>
                   </li>
                   <li>
-                    <span className="text-gray-800 font-medium">{currentPath}</span>
+                    <span className="font-medium">{currentPath}</span>
                   </li>
                 </>
               )}
             </ol>
           </nav>
-       
+          <div className="flex space-x-4">
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
+              <Youtube className="h-6 w-6" />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
+              <Facebook className="h-6 w-6" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
+              <Twitter className="h-6 w-6" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

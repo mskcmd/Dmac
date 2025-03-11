@@ -70,7 +70,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="absolute bottom-4 sm:bottom-8 md:bottom-16 right-4 sm:right-6 md:right-8 z-10"
           >
-            <Button className="bg-gradient-to-r from-blue-900 to-black text-white hover:from-blue-900 hover:to-black transition-colors border-2 border-blue-400 rounded-xl shadow-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium">
+            <Button className="bg-gradient-to-r from-blue-950 to-black text-white hover:from-blue-900 hover:to-black transition-colors border-2 border-black rounded-xl shadow-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium">
               Read More
             </Button>
           </motion.div>
