@@ -15,10 +15,12 @@ import Contact from "./Pages/Contact";
 import Footer from "./Pages/Footer";
 import Academics from "./Pages/academics";
 import AcademicsPrograms from "./Pages/academics/Programs";
+import Breadcrumb from "./Pages/Breadcrumb";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <Breadcrumb/>
       <Navbar />
       <main className="flex-grow">
         <Routes>

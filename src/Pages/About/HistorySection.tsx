@@ -1,8 +1,8 @@
-
-
 // src/pages/about/History.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import image4 from "../../assets/aaa.jpg";
+
 
 export default function History() {
   return (
@@ -18,13 +18,19 @@ export default function History() {
             <h2 className="text-3xl font-bold text-black">Our History</h2>
             <div className="mt-6 space-y-4 text-gray-600">
               <p>
-                Founded in 1985, Sa-adiya has grown from a small educational institute to a comprehensive educational complex that serves thousands of students.
+                Jamia Darul Ma'arifil Islamiyya is one of the premier Islamic
+                institutions in Southern India. It was established by veteran
+                scholar and visionary, Ustad OKM Bappu Musliyar in 1975.
+                Installed in Valiyora, a pacific village in the valley of river
+                Kadalundi, it is the centre for carving par excellence
+                generations, spiritually tuned & academically well bred, to lead
+                the community.
               </p>
               <p>
-                Our journey began with a vision to provide quality education that balances traditional values with modern knowledge, preparing students to excel in both religious and worldly pursuits.
-              </p>
-              <p>
-                Over the decades, we have expanded our facilities, diversified our academic programs, and strengthened our commitment to educational excellence and community service.
+                Our journey began with a vision to provide quality education
+                that balances traditional values with modern knowledge,
+                preparing students to excel in both religious and worldly
+                pursuits.
               </p>
             </div>
           </motion.div>
@@ -37,7 +43,9 @@ export default function History() {
             <div className="relative h-80 rounded-lg bg-gray-200 shadow-lg overflow-hidden">
               {/* Placeholder for history image */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-gray-500 text-lg">Historical Building Image</span>
+                <span className="text-gray-500 text-lg">
+                  <img src={image4}  alt=""/>{" "}
+                </span>
               </div>
             </div>
           </motion.div>
