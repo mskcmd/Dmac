@@ -33,25 +33,25 @@ export default function Home() {
 
   const departments = [
     {
-      name: "DWAWA",
+      name: "college of Islamic Da'wa",
       description:
         "The Dwawa department focuses on outreach and community engagement, spreading knowledge and values through meaningful initiatives.",
       image: collgeoldimage1,
     },
     {
-      name: "SHAREA",
+      name: "College of Islamic Shareeh",
       description:
         "Share'a department provides in-depth education on Islamic law and principles, fostering a deep understanding of Sharia practices.",
       image: oldmasjidImage,
     },
     {
-      name: "HIFSZ DAEA",
+      name: "Thahfeezul Da'wa",
       description:
         "Hifsz Daea combines memorization of the Quran with outreach, nurturing students to become ambassadors of Islamic teachings.",
       image: collgeoldimage1,
     },
     {
-      name: "HIFZ",
+      name: "Thahfeezul Quran College",
       description:
         "The Hifz department is dedicated to the memorization of the Quran, guiding students to achieve mastery with devotion.",
       image: hifzCollege,

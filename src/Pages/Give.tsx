@@ -1,9 +1,11 @@
 // src/pages/Give.tsx
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export default function Give() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const donationDetails = {
     accountNumber: "185720100000042",
     bankName: "Canara Bank",
@@ -102,7 +104,16 @@ export default function Give() {
 
             {/* Button */}
             <div className="mt-8">
-              <Button className="w-full bg-gradient-to-r from-gray-300 to-white text-gray-800 hover:from-gray-400 hover:to-white transition-colors border-2 border-gray-400 rounded-xl shadow-lg px-6 py-3 text-base font-medium">
+              <Button
+                onClick={() => {
+                  window.open(
+                    "upi://pay?pa=9061450356@upi&pn=RecipientName&mc=123456&mode=02&purpose=00",
+                    "_blank"
+                  );
+                  setIsOpen(false);
+                }}
+                className="w-full bg-gradient-to-r from-gray-300 to-white text-gray-800 hover:from-gray-400 hover:to-white transition-colors border-2 border-gray-400 rounded-xl shadow-lg px-6 py-3 text-base font-medium"
+              >
                 Donate Now
               </Button>
             </div>
