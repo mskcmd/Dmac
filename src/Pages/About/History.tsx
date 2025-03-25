@@ -7,7 +7,7 @@ export default function AboutHistory() {
     <div>
       <Hero 
         title="Our History" 
-        description="Discover the journey of Sa-adiya from its founding to the present day."
+        description="Discover the journey of Jamia Darul Ma'arifil  from its founding to the present day."
       />
       <HistorySection />
     </div>

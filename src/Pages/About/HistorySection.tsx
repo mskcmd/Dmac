@@ -3,10 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import image4 from "../../assets/aaa.jpg";
 
-
 export default function History() {
+  const masjidImage =
+    "https://res.cloudinary.com/dkj7godal/image/upload/v1742907594/DMAC/zuhzkjhef2upsj4e3xln.jpg";
   return (
-    <section id="history" className="py-16 bg-white">
+    <section id="history" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -15,16 +16,15 @@ export default function History() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-black">Our History</h2>
-            <div className="mt-6 space-y-4 text-gray-600">
+            <div className="mt-1 space-y-4 text-gray-600">
               <p>
-                Jamia Darul Ma'arifil Islamiyya is one of the premier Islamic
-                institutions in Southern India. It was established by veteran
-                scholar and visionary, Ustad OKM Bappu Musliyar in 1975.
-                Installed in Valiyora, a pacific village in the valley of river
-                Kadalundi, it is the centre for carving par excellence
-                generations, spiritually tuned & academically well bred, to lead
-                the community.
+                <strong>Jamia Darul Ma'arifil Islamiyya</strong> is one of the
+                premier Islamic institutions in Southern India. It was
+                established by veteran scholar and visionary, Ustad OKM Bappu
+                Musliyar in 1975. Installed in Valiyora, a pacific village in
+                the valley of river Kadalundi, it is the centre for carving par
+                excellence generations, spiritually tuned & academically well
+                bred, to lead the community.
               </p>
               <p>
                 Our journey began with a vision to provide quality education
@@ -44,7 +44,7 @@ export default function History() {
               {/* Placeholder for history image */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-gray-500 text-lg">
-                  <img src={image4}  alt=""/>{" "}
+                  <img src={masjidImage} alt="" />{" "}
                 </span>
               </div>
             </div>

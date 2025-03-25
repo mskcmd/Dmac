@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronDown, ChevronUp } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import image from "../assets/DM_logo-01-1.png";
 import React from "react";
 
 export default function Navbar() {
@@ -14,6 +13,9 @@ export default function Navbar() {
   const [academicsDropdownOpen, setAcademicsDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileAcademicsOpen, setMobileAcademicsOpen] = useState(false);
+
+  const image =
+    "https://res.cloudinary.com/dkj7godal/image/upload/v1742908189/DMAC/st6cgmecqw07sqoouyt3.png";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,21 +51,21 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { 
-      label: "About", 
+    {
+      label: "About",
       href: "/about",
       hasDropdown: true,
       dropdownItems: aboutDropdownItems,
       isDropdownOpen: aboutDropdownOpen,
-      setDropdownOpen: setAboutDropdownOpen
+      setDropdownOpen: setAboutDropdownOpen,
     },
-    { 
-      label: "Academics", 
+    {
+      label: "Academics",
       href: "/academics",
       hasDropdown: true,
       dropdownItems: academicsDropdownItems,
       isDropdownOpen: academicsDropdownOpen,
-      setDropdownOpen: setAcademicsDropdownOpen
+      setDropdownOpen: setAcademicsDropdownOpen,
     },
     { label: "Institutions", href: "/institutions" },
     { label: "Admission", href: "/admission" },
@@ -78,18 +80,21 @@ export default function Navbar() {
 
   // Handle dropdown click outside
   useEffect(() => {
-    const handleClickOutside = (event:any) => {
-      if (aboutDropdownOpen && !event.target.closest('.about-dropdown')) {
+    const handleClickOutside = (event: any) => {
+      if (aboutDropdownOpen && !event.target.closest(".about-dropdown")) {
         setAboutDropdownOpen(false);
       }
-      if (academicsDropdownOpen && !event.target.closest('.academics-dropdown')) {
+      if (
+        academicsDropdownOpen &&
+        !event.target.closest(".academics-dropdown")
+      ) {
         setAcademicsDropdownOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [aboutDropdownOpen, academicsDropdownOpen]);
 
@@ -111,7 +116,16 @@ export default function Navbar() {
           {/* Center: Navigation Links */}
           <div className="hidden sm:flex flex-grow justify-center space-x-8">
             {navItems.map((item) => (
-              <div key={item.label} className={`relative ${item.hasDropdown ? (item.label === 'About' ? 'about-dropdown' : 'academics-dropdown') : ''}`}>
+              <div
+                key={item.label}
+                className={`relative ${
+                  item.hasDropdown
+                    ? item.label === "About"
+                      ? "about-dropdown"
+                      : "academics-dropdown"
+                    : ""
+                }`}
+              >
                 {item.hasDropdown ? (
                   <div className="inline-flex items-center">
                     <button
@@ -211,24 +225,27 @@ export default function Navbar() {
                                 : "text-gray-300 hover:text-white"
                             }`}
                             onClick={() => {
-                              if (item.label === 'About') {
+                              if (item.label === "About") {
                                 setMobileAboutOpen(!mobileAboutOpen);
-                              } else if (item.label === 'Academics') {
+                              } else if (item.label === "Academics") {
                                 setMobileAcademicsOpen(!mobileAcademicsOpen);
                               }
                             }}
                           >
                             <span>{item.label}</span>
-                            {(item.label === 'About' && mobileAboutOpen) || (item.label === 'Academics' && mobileAcademicsOpen) ? (
+                            {(item.label === "About" && mobileAboutOpen) ||
+                            (item.label === "Academics" &&
+                              mobileAcademicsOpen) ? (
                               <ChevronUp className="h-4 w-4" />
                             ) : (
                               <ChevronDown className="h-4 w-4" />
                             )}
                           </button>
-                          
+
                           {/* Mobile Dropdown Items */}
-                          {((item.label === 'About' && mobileAboutOpen) || 
-                             (item.label === 'Academics' && mobileAcademicsOpen)) && (
+                          {((item.label === "About" && mobileAboutOpen) ||
+                            (item.label === "Academics" &&
+                              mobileAcademicsOpen)) && (
                             <div className="pl-4 mt-2 mb-2 flex flex-col space-y-2">
                               {item.dropdownItems.map((dropdownItem) => (
                                 <NavLink

@@ -9,7 +9,7 @@ export default function Breadcrumb() {
           <nav className="flex" aria-label="Breadcrumb"></nav>
           <div className="flex space-x-4">
             <a
-              href="https://www.youtube.com"
+              href="https://www.youtube.com/@darulmaarifonlinevaliyora8274"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-400"
@@ -17,7 +17,7 @@ export default function Breadcrumb() {
               <Youtube className="h-5 w-5 text-red-500" />
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/DarulMaarifValiyora/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-400"
@@ -25,7 +25,7 @@ export default function Breadcrumb() {
               <Facebook className="h-5 w-5 text-blue-600" />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/darul_maarif_valiyora?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-400"
